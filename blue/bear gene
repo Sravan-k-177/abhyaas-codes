@@ -1,0 +1,30 @@
+length_input = int(input())
+string_data = input()
+req_occurrence = length_input // 4
+
+def occurrence_count(gene):
+    occurrence_sum = {'A': 0, 'T': 0, 'G': 0, 'C': 0}
+    for char in gene:
+        occurrence_sum[char] += 1
+    return occurrence_sum
+
+initial_counts = occurrence_count(string_data)
+
+if all(initial_counts[char] == req_occurrence for char in 'ATGC'):
+    print(0)
+    exit()
+
+excess_counts = {char: max(0, initial_counts[char] - req_occurrence) for char in 'ATGC'}
+
+min_length = float('inf')
+left = 0
+
+for right in range(length_input):
+    initial_counts[string_data[right]] -= 1 
+    
+    while all(initial_counts[char] <= req_occurrence for char in 'ATGC'):
+        min_length = min(min_length, right - left + 1)
+        initial_counts[string_data[left]] += 1 
+        left += 1
+
+print(min_length if min_length != float('inf') else 0)

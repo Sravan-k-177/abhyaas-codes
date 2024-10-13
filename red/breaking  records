@@ -1,0 +1,14 @@
+number_of_values = int(input())
+values = [int(item.strip()) for item in input().split(' ') ]
+min_count = 0
+max_count = 0
+cur_min = values[0]
+cur_max = values[0]
+for i in values:
+    if i > cur_max:
+        max_count += 1
+        cur_max = i
+    elif i < cur_min:
+        min_count += 1
+        cur_min = i
+print(max_count, min_count)

@@ -1,0 +1,10 @@
+test_cases = int(input())
+while test_cases>0:
+    number_of_elements = int(input())
+    elements = [item.strip() for item in input().split(' ')]
+    for i in range(number_of_elements):
+        for k in range(i + 1, number_of_elements + 1):
+            subarray = elements[i:k]
+            result = ' '.join(subarray)
+            print(result)
+    test_cases -= 1

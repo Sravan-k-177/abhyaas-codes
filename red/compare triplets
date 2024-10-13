@@ -1,0 +1,10 @@
+first_vadi_scores = [int(item.strip()) for item in input().split(' ')]
+second_vadi_scores = [int(item.strip()) for item in input().split(' ')]
+first_score = 0
+second_score = 0
+for i in range(3):
+    if first_vadi_scores[i] > second_vadi_scores[i]:
+        first_score +=1
+    elif first_vadi_scores[i] < second_vadi_scores[i]:
+        second_score += 1
+print(first_score,second_score)

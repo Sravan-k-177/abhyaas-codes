@@ -1,0 +1,12 @@
+length_input = [int(item.strip()) for item in input().split(' ')]
+length_of_a = length_input[0]
+length_of_b = length_input[1]
+elements_set_01 = [int(item.strip()) for item in input().split(' ')]
+elements_set_02 = [int(item.strip()) for item in input().split(' ')]
+max_factor = min(elements_set_02)
+haha_number = 0
+for i in range(1,max_factor+1):
+    if all(elem % i == 0 for elem in elements_set_02):
+        if all(i % elem == 0 for elem in elements_set_01):
+            haha_number += 1
+print(haha_number)
